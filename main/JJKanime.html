@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJK | anime</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        primary: '#E50000', 
+                        accent: '#FFD700',
+                        cardBg: '#111111',
+                    },
+                    fontFamily: {
+                        display: ['Syncopate', 'sans-serif'],
+                        body: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- CSS -->
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .title-glow {
+            text-shadow: 2px 2px 0 #000, 0 0 20px #E50000;
+        }
+
+        .character-section {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity;
+        }
+
+        .char-left {
+            transform: translateX(-100px);
+        }
+
+        .char-right {
+            transform: translateX(100px);
+        }
+
+        .character-section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .character-card img {
+            filter: grayscale(100%);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid #333;
+        }
+
+        .character-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05) translateY(-10px);
+            border-color: #1a1600;
+            box-shadow: 0 0 40px rgba(229, 0, 0, 0.6);
+        }
+
+        .character-name {
+            transition: all 0.4s ease;
+        }
+
+        .character-card:hover .character-name {
+            color: #FFD700;
+            text-shadow: 0 0 15px #530101;
+            letter-spacing: 0.1em;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .curse-particle {
+            position: absolute;
+            width: 7px;
+            height: 9px;
+            border-radius: 50%;
+            background: #E50000;
+            pointer-events: none;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-primary selection:text-white" id="top">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/10 py-2">    
+        <div class="absolute ml-40 left-20 top-1/2 transform -translate-y-1/2">
+            <a href="https://jujutsu-kaisen.fandom.com/wiki/Story_Arcs" target="_blank" class="text-sm md:text-base text-gray-300 tracking-widest uppercase px-3 py-1 border border-gray-600 rounded hover:bg-gray-700 transition-colors duration-300">
+                Story Arcs
+            </a>
+        </div>
+        <div class="container mx-auto px-6 flex flex-col justify-center items-center">
+
+            <a href="#top">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Jujutsu_Kaisen_logo.png"
+                    class="w-[380px] cursor-pointer transition-transform duration-300 hover:scale-110">
+            </a>
+
+            <p class="text-sm md:text-base text-gray-300 tracking-widest uppercase mt-1">
+                Main Characters
+            </p>
+        </div>
+         <div class="absolute mr-20 right-20 top-1/2 transform -translate-y-1/2">
+            <a href="https://jujutsu-kaisen.fandom.com/wiki/Volumes_%26_Chapters" target="_blank" class="text-sm md:text-base text-gray-300 tracking-widest uppercase px-3 py-1 border border-gray-600 rounded hover:bg-gray-700 transition-colors duration-300">
+                Volumes & Chapters
+            </a>
+    </header>
+
+    <section class="h-40 md:h-60"></section>
+
+    <!-- Main Character Container -->
+    <main class="container mx-auto px-4 pb-32 overflow-hidden">
+        
+        <!-- Yuji Itadori -->
+        <div class="character-section char-left mb-32 md:mb-48 flex flex-col md:flex-row items-center gap-12" data-side="left">
+            <div class="character-card w-full max-w-[650px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Yuji_Itadori" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://giffiles.alphacoders.com/219/219539.gif"
+                         alt="Yuji Itadori" 
+                         class="w-full h-[550px] object-cover shadow-2xl">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Yuji Itadori</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-primary font-bold tracking-tiniest uppercase text-sm mb-2 block">Vessel of Sukuna</span>
+                <p class="text-gray-400 max-w-md mx-auto md:mx-0 leading-relaxed text-lg">
+                    A boy with immense physical strength who consumes a finger of Sukuna, the King of Curses, and becomes his vessel to save his friends.
+                </p>
+            </div>
+        </div>
+
+        <!-- Gojo Satoru -->
+        <div class="character-section char-right mb-32 md:mb-32 flex flex-col md:flex-row-reverse items-center gap-12" data-side="right">
+            <div class="character-card w-full max-w-[750px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Satoru_Gojo" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://i.pinimg.com/originals/14/fc/7d/14fc7d1120735dd8e2064a38913ea339.gif" 
+                         alt="Gojo Satoru" 
+                         class="w-[100%] max-w-[700px] h-auto shadow-2xl">
+                    <div class="absolute bottom-0 right-0 w-full p-6 text-right bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Gojo Satoru</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-right">
+                <span class="text-accent font-bold tracking-tiniest uppercase text-sm mb-2 block">The Honored One</span>
+                <p class="text-gray-400 max-w-md mx-auto md:ml-auto md:mr-0 leading-relaxed text-lg">
+                    Widely recognized as the strongest sorcerer in the world. Holder of both the Limitless and Six Eyes techniques.
+                </p>
+            </div>
+        </div>
+        
+        <div class="flex justify-center items-center mb-32">
+            <img 
+                src="https://giffiles.alphacoders.com/221/221617.gif"
+                class="w-full max-w-[900px] rounded-xl shadow-2xl opacity-90">
+        </div>
+
+        <!-- Sukuna -->
+        <div class="character-section char-left mb-32 md:mb-32 flex flex-col md:flex-row items-center gap-12" data-side="left">
+            <div class="character-card w-full max-w-[750px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Sukuna" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://i.pinimg.com/originals/c3/e1/e4/c3e1e47113a4bea928309e341b245dac.gif"
+                         class="w-full h-[450px] object-cover shadow-2xl">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Ryomen Sukuna</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-primary font-bold tracking-tiniest uppercase text-sm mb-2 block">King of Curses </span>
+                <p class="text-gray-400 max-w-md mx-auto md:mx-0 leading-relaxed text-lg">
+                    The main antagonist of the Jujutsu Kaisen series, he was history's strongest jujutsu sorcerer.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-center mb-32">
+            <img 
+                src="https://i.makeagif.com/media/2-15-2024/a3_nL7.gif"
+                class="w-full max-w-[900px] rounded-xl shadow-2xl opacity-90">
+        </div>
+
+        <!-- Yuta Okkotsu -->
+        <div class="character-section char-left mb-32 md:mb-48 flex flex-col md:flex-row items-center gap-12" data-side="left">
+            <div class="character-card w-full max-w-[750px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Yuta_Okkotsu" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://i.pinimg.com/originals/70/55/5c/70555c10cd948cd0607422e991c41f68.gif"
+                         class="w-full h-[450px] object-cover shadow-2xl">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Yuta Okkotsu</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-primary font-bold tracking-tiniest uppercase text-sm mb-2 block">Special Grade</span>
+                <p class="text-gray-400 max-w-md mx-auto md:mx-0 leading-relaxed text-lg">
+                    The protagonist of JJK 0. He carries the powerful curse of his childhood friend Rika and possesses immense cursed energy.
+                </p>
+            </div>
+        </div>
+
+        <!-- Fushiguro Megumi -->
+        <div class="character-section char-right mb-32 md:mb-48 flex flex-col md:flex-row-reverse items-center gap-12" data-side="right">
+            <div class="character-card w-full max-w-[650px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Megumi_Fushiguro" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://i.pinimg.com/originals/ff/9d/c6/ff9dc67bba1f0a30d15265033165b0ca.gif" 
+                         alt="Fushiguro Megumi" 
+                         class="w-full h-[450px] object-cover shadow-2xl">
+                    <div class="absolute bottom-0 right-0 w-full p-6 text-right bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Fushiguro Megumi</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-right">
+                <span class="text-accent font-bold tracking-tiniest uppercase text-sm mb-2 block">Ten Shadows User</span>
+                <p class="text-gray-400 max-w-md mx-auto md:ml-auto md:mr-0 leading-relaxed text-lg">
+                    A first-year student at Jujutsu High and a descendant of the Zenin family, utilizing shadows to summon powerful shikigami.
+                </p>
+            </div>
+        </div>
+
+        <!-- Zenin Maki -->
+        <div class="character-section char-left mb-32 md:mb-48 flex flex-col md:flex-row items-center gap-12" data-side="left">
+            <div class="character-card w-full max-w-[750px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Maki_Zenin" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://i.makeagif.com/media/10-21-2023/mzDSBD.gif" 
+                         alt="Zenin Maki" 
+                         class="w-full h-[450px] object-cover shadow-2xl">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Zenin Maki</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-primary font-bold tracking-tiniest uppercase text-sm mb-2 block">Heavenly Restriction</span>
+                <p class="text-gray-400 max-w-md mx-auto md:mx-0 leading-relaxed text-lg">
+                    Born with low cursed energy but extraordinary physical prowess, she seeks to become a master sorcerer despite her family's rejection.
+                </p>
+            </div>
+        </div>
+
+        <!-- Geto Suguru -->
+        <div class="character-section char-right mb-32 md:mb-64 flex flex-col md:flex-row-reverse items-center gap-12" data-side="right">
+            <div class="character-card w-full max-w-[650px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Suguru_Geto" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://giffiles.alphacoders.com/219/219956.gif" 
+                         alt="Geto Suguru" 
+                         class="w-full h-[450px] object-cover shadow-2xl">
+                    <div class="absolute bottom-0 right-0 w-full p-6 text-right bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Geto Suguru</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-right">
+                <span class="text-accent font-bold tracking-tiniest uppercase text-sm mb-2 block">Curse Manipulation</span>
+                <p class="text-gray-400 max-w-md mx-auto md:ml-auto md:mr-0 leading-relaxed text-lg">
+                    A former friend of Gojo turned into the worst curse user. He seeks a world where only sorcerers exist.
+                </p>
+            </div>
+        </div>
+
+        <!-- Nobara -->
+        <div class="character-section char-left mb-32 md:mb-48 flex flex-col md:flex-row items-center gap-12" data-side="left">
+            <div class="character-card w-full max-w-[750px] group">
+                <a href="https://jujutsu-kaisen.fandom.com/wiki/Nobara_Kugisaki" target="_blank" class="block relative overflow-hidden rounded-xl">
+                    <img src="https://giffiles.alphacoders.com/211/211800.gif" 
+                         alt="Nobara Kugisaki" 
+                         class="w-full h-[450px] object-cover shadow-2xl">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="character-name font-display text-3xl font-bold uppercase italic tracking-wider">Nobara Kugisaki</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-primary font-bold tracking-tiniest uppercase text-sm mb-2 block">Grade 3 sorcerer</span>
+                <p class="text-gray-400 max-w-md mx-auto md:mx-0 leading-relaxed text-lg">
+                    Nobara is ranked as a grade 3 jujutsu sorcerer by Jujutsu High, she had a solid understanding of how to exorcise curses with her innate technique.
+                </p>
+            </div>
+        </div>
+        <div class="flex justify-center items-center mb-32">
+            Made by dhp - 2026 DevCamp W1 Assignment
+        </div>
+    </main>
+
+    <!-- Background -->
+    <div id="particle-container" class="fixed inset-0 pointer-events-none -z-10"></div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.35,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.character-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        const particleContainer = document.getElementById('particle-container');
+        for (let i = 0; i < 50; i++) {
+            const p = document.createElement('div');
+            p.className = 'curse-particle';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = Math.random() * 100 + 'vh';
+            p.style.opacity = Math.random() * 0.5;
+            p.style.transform = `scale(${Math.random() * 3})`;
+            
+            p.animate([
+                { transform: 'translateY(0px)' },
+                { transform: `translateY(${-20 - Math.random() * 100}px) translateX(${Math.random() * 20 - 10}px)` }
+            ], {
+                duration: 2000 + Math.random() * 3000,
+                iterations: Infinity,
+                direction: 'alternate',
+                easing: 'ease-in-out'
+            });
+
+            particleContainer.appendChild(p);
+        }
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const images = document.querySelectorAll('.character-card img');
+            images.forEach(img => {
+                const speed = 0.05;
+                const rect = img.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const yPos = -(scrolled * speed);
+                    img.style.objectPosition = `center ${50 + (yPos / 10)}%`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
